@@ -9,8 +9,8 @@ window.addEventListener("load", async () => {
 const form = document.querySelector("form");
 const webUrl = "https://buffete-api-strapi.herokuapp.com";
 
-const Login = async ({ email, password }) => {
-    const url = `${webUrl}/api/auth/local`;
+const Register = async ({ username, email, password }) => {
+    const url = `${webUrl}/api/auth/local/register`;
 
     const response = await fetch(url, {
         method: "POST",
@@ -18,7 +18,8 @@ const Login = async ({ email, password }) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            identifier: email,
+            username,
+            email,
             password,
         }),
     }).then((res) => res.json());
@@ -29,10 +30,11 @@ const Login = async ({ email, password }) => {
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    const username = document.getElementById("username").value;
     const email = document.getElementById("email-address").value;
     const password = document.getElementById("password").value;
 
-    const data = await Login({ email, password });
+    const data = await Register({ username, email, password });
 
     window.localStorage.setItem("token", data.jwt);
     window.location.reload();
