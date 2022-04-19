@@ -1,3 +1,6 @@
+const form = document.querySelector("form");
+const webUrl = "https://buffete-api-strapi.herokuapp.com/api";
+
 window.addEventListener("load", async () => {
     const token = window.localStorage.getItem("token");
 
@@ -6,11 +9,8 @@ window.addEventListener("load", async () => {
     };
 });
 
-const form = document.querySelector("form");
-const webUrl = "https://buffete-api-strapi.herokuapp.com";
-
 const Login = async ({ email, password }) => {
-    const url = `${webUrl}/api/auth/local`;
+    const url = `${webUrl}/auth/local`;
 
     const response = await fetch(url, {
         method: "POST",
