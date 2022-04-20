@@ -45,7 +45,7 @@ const insertClientsToTable = (clients) => {
 
         const tdActions = createElement("td", null, { class: "flex flex-col px-3 text-gray-800 text-center border border-b table-cell static" });
         
-        const editLink = createElement("a", "Edit", { class: "flex text-blue-400 hover:text-blue-600 underline", href: `/client/edit.html?id=${id}` });
+        const editLink = createElement("a", "Edit", { class: "flex text-blue-400 hover:text-blue-600 underline", href: `client/edit.html?id=${id}` });
         tdActions.appendChild(editLink);
 
         const deleteButton = createElement("button", "Delete", { class: "flex text-blue-400 hover:text-blue-600 underline" });
@@ -94,7 +94,7 @@ const insertCasesToTable = (cases) => {
 
         const tdActions = createElement("td", null, { class: "flex flex-col pl-3 text-gray-800 text-center border border-b table-cell static" });
         
-        const editLink = createElement("a", "Edit", { class: "flex text-blue-400 hover:text-blue-600 underline", href: `/cases/edit.html?id=${id}` });
+        const editLink = createElement("a", "Edit", { class: "flex text-blue-400 hover:text-blue-600 underline", href: `cases/edit.html?id=${id}` });
         tdActions.appendChild(editLink);
 
         const downloadReport = createElement("button", "Descargar reporte", { class: "flex text-blue-400 hover:text-blue-600 underline" });
