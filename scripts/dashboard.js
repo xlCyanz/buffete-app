@@ -4,7 +4,7 @@ window.jsPDF = window.jspdf.jsPDF;
 
 document.getElementById("logOutButton").addEventListener("click", () => {
     localStorage.removeItem("token");
-    window.location.href = "/";
+    window.location.href = "/index.html";
 });
 
 const createElement = (element, children, attributes) => {
