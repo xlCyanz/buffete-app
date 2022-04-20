@@ -103,8 +103,8 @@ const insertCasesToTable = (cases) => {
             doc.text(`Título: ${caseData.title}`, 10, 10);
             doc.text(`Descripción: ${caseData.description}`, 10, 20);
             doc.text(`Estado: ${caseData.status}`, 10, 30);
-            doc.text(`Cliente: ${caseData.client.data.attributes?.username || "No asignado"}`, 10, 40);
-            doc.text(`Abogado: ${caseData?.lawyer?.username || "No asignado"}`, 10, 50);
+            doc.text(`Cliente: ${caseData?.client.data.attributes?.username || "No asignado"}`, 10, 40);
+            doc.text(`Abogado: ${caseData?.lawyer.data.attributes?.username || "No asignado"}`, 10, 50);
             doc.save(`${caseData.title}.pdf`);
         });
         tdActions.appendChild(downloadReport);
