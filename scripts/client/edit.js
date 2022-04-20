@@ -12,7 +12,7 @@ const statusCivilField = document.getElementById('status-field');
 
 const cancelButton = document.getElementById('cancel-button');
 cancelButton.addEventListener("click", () => {
-    window.location.href = "/dashboard.html";
+    window.location.href = "dashboard.html";
 });
 
 window.addEventListener('load', async () => {

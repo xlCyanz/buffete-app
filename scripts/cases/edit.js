@@ -32,7 +32,7 @@ window.addEventListener('load', async () => {
 
 const cancelButton = document.getElementById('cancel-button');
 cancelButton.addEventListener("click", () => {
-    window.location.href = "/";
+    window.location.href = "dashboard.html";
 });
 
 document.getElementById('form').addEventListener('submit', async (e) => {
