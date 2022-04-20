@@ -28,7 +28,7 @@ document.getElementById('form').addEventListener('submit', async (e) => {
         status_civil: statusCivilField.value,
     };
 
-    const response = await fetch(`${webUrl}/clients/`, {
+    const response = await fetch(`${webUrl}/clients`, {
         method: 'POST',
         mode: "cors",
         headers: {

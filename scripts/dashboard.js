@@ -1,5 +1,6 @@
 const body = document.getElementsByTagName("body")[0];
 const webUrl = "https://buffete-api-strapi.herokuapp.com/api";
+window.jsPDF = window.jspdf.jsPDF;
 
 document.getElementById("logOutButton").addEventListener("click", () => {
     localStorage.removeItem("token");
@@ -88,8 +89,8 @@ const insertCasesToTable = (cases) => {
         const tdTitle = createElement("td", caseData.title, { class: `${tdClass} font-bold` });
         const tdDescription = createElement("td", caseData.description, { class: tdClass });
         const tdStatus = createElement("td", caseData.status, { class: tdClass });
-        const tdClient = createElement("td", caseData.client.data.attributes?.username || "No asignado", { class: tdClass });
-        const tdLawyer = createElement("td", caseData?.lawyer?.username || "No asignado", { class: tdClass });
+        const tdClient = createElement("td", caseData?.client?.data?.attributes?.username || "No asignado", { class: tdClass });
+        const tdLawyer = createElement("td", caseData?.lawyer?.data?.attributes?.username || "No asignado", { class: tdClass });
 
         const tdActions = createElement("td", null, { class: "flex flex-col pl-3 text-gray-800 text-center border border-b table-cell static" });
         
@@ -97,9 +98,29 @@ const insertCasesToTable = (cases) => {
         tdActions.appendChild(editLink);
 
         const downloadReport = createElement("button", "Descargar reporte", { class: "flex text-blue-400 hover:text-blue-600 underline" });
+        downloadReport.addEventListener("click", () => {
+            const doc = new jsPDF();
+            doc.text(`Título: ${caseData.title}`, 10, 10);
+            doc.text(`Descripción: ${caseData.description}`, 10, 20);
+            doc.text(`Estado: ${caseData.status}`, 10, 30);
+            doc.text(`Cliente: ${caseData.client.data.attributes?.username || "No asignado"}`, 10, 40);
+            doc.text(`Abogado: ${caseData?.lawyer?.username || "No asignado"}`, 10, 50);
+            doc.save(`${caseData.title}.pdf`);
+        });
         tdActions.appendChild(downloadReport);
 
         const deleteButton = createElement("button", "Delete", { class: "flex text-blue-400 hover:text-blue-600 underline" });
+        deleteButton.addEventListener("click", async () => {
+            await fetch(`${webUrl}/cases/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }).then(() => {
+                const caseRow = document.getElementById(`caseData-${id}`);
+                caseRow.remove();
+            });
+        });
         tdActions.appendChild(deleteButton);
 
         tr.append(tdTitle, tdDescription, tdStatus, tdClient, tdLawyer, tdActions);

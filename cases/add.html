@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <title>Nuevo caso</title>
+  </head>
+
+  <body class="w-screen h-screen">
+    <div class="p-10 bg-indigo-500 w-full h-full">
+      <div class="mt-10 sm:mt-0">
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <form id="form" method="POST">
+            <div class="shadow overflow-hidden sm:rounded-md">
+              <div class="px-4 py-5 bg-white sm:p-6">
+                <div class="grid grid-cols-6 gap-6">
+                  <div class="col-span-3">
+                    <label
+                      for="title-field"
+                      class="block text-sm font-medium text-gray-700"
+                      >Titulo</label
+                    >
+                    <input
+                      type="text"
+                      name="title-field"
+                      id="title-field"
+                      autocomplete="given-name"
+                      required
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+
+                  <div class="col-span-3">
+                    <label
+                      for="desc-field"
+                      class="block text-sm font-medium text-gray-700"
+                      >Descripcion</label
+                    >
+                    <textarea
+                      type="text"
+                      name="desc-field"
+                      id="desc-field"
+                      autocomplete="family-name"
+                      required
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    ></textarea>
+                  </div>
+
+                  <div class="col-span-3">
+                    <label
+                      for="type-field"
+                      class="block text-sm font-medium text-gray-700"
+                      >Tipo de caso</label
+                    >
+                    <input
+                      type="text"
+                      name="type-field"
+                      id="type-field"
+                      autocomplete="email"
+                      required
+                      class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+
+                  <div class="col-span-3">
+                    <label
+                      for="status-field"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Estado</label
+                    >
+                    <select
+                      id="status-field"
+                      name="status-field"
+                      autocomplete="country-name"
+                      required
+                      class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    >
+                      <option>Abierto</option>
+                      <option>Cerrado</option>
+                    </select>
+                  </div>
+                  <div class="col-span-3">
+                    <label
+                      for="lawyer-field"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Abogado
+                    </label>
+                    <select
+                      id="lawyer-field"
+                      name="lawyer-field"
+                      autocomplete="country-name"
+                      required
+                      class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    ></select>
+                  </div>
+                  <div class="col-span-3">
+                    <label
+                      for="client-field"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Cliente
+                    </label>
+                    <select
+                      id="client-field"
+                      name="client-field"
+                      autocomplete="country-name"
+                      required
+                      class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    >
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                <button
+                  type="submit"
+                  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                  Agregar nuevo caso
+                </button>
+                <button
+                  id="cancel-button"
+                  type="button"
+                  class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../scripts/cases/add.js"></script>
+</html>
